@@ -18,6 +18,9 @@
    USA.  */
 
 /* When included from os2compat.h we need all the original definitions */
+
+#ifndef __KLIBC__
+
 #ifndef OS2_AWARE
 
 #undef LIBDIR
@@ -44,3 +47,5 @@ extern char *_nlos2_localealiaspath;
 
 /* Older versions of gettext used -1 as the value of LC_MESSAGES */
 #define LC_MESSAGES_COMPAT (-1)
+
+#endif // __KLIBC__

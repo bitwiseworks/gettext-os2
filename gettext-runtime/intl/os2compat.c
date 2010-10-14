@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
    USA.  */
 
+#ifndef __KLIBC__
+
 #define OS2_AWARE
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -96,3 +98,5 @@ nlos2_initialize ()
   if (strlen (_nlos2_localedir) <= MAXPATHLEN)
     strcpy (libintl_nl_default_dirname, _nlos2_localedir);
 }
+
+#endif // __KLIBC__

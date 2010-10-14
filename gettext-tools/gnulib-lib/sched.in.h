@@ -30,10 +30,12 @@
 
 #if !@HAVE_STRUCT_SCHED_PARAM@
 
+#ifndef __KLIBC__
 struct sched_param
 {
   int sched_priority;
 };
+#endif
 
 #endif
 

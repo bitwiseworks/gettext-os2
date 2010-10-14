@@ -15,6 +15,11 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
 # USA.
+ 
+OS2_LA_NAME=intl
+OS2_DLL_NAME=kintl
+OS2_DLL_OBJ=$(OBJECTS:%.lo=.libs/%.o)
+OS2_DLL_LIBS=$(LIBS)
 
 PACKAGE = @PACKAGE@
 VERSION = @VERSION@
@@ -206,7 +211,7 @@ COPYING.LIB-2 gettext.h libgettext.h plural-eval.c libgnuintl.h \
 libgnuintl.h_vms Makefile.vms libgnuintl.h.msvc-static \
 libgnuintl.h.msvc-shared Makefile.msvc
 
-all: all-@USE_INCLUDED_LIBINTL@
+all: all-@USE_INCLUDED_LIBINTL@ $(OS2_DLL_NAME).dll
 all-yes: libintl.$la libintl.h charset.alias ref-add.sed ref-del.sed
 all-no: all-no-@BUILD_INCLUDED_LIBINTL@
 all-no-yes: libgnuintl.$la
@@ -657,3 +662,13 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 # Tell versions [3.59,3.63) of GNU make not to export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
+
+$(OS2_DLL_NAME).dll: lib$(OS2_LA_NAME).la
+	cp .libs/$(OS2_LA_NAME).a .libs/$(OS2_LA_NAME)_s.a
+	echo "LIBRARY $(OS2_DLL_NAME) INITINSTANCE TERMINSTANCE" > $(OS2_DLL_NAME).def
+	echo "DATA MULTIPLE" >> $(OS2_DLL_NAME).def
+	echo "EXPORTS" >> $(OS2_DLL_NAME).def
+	emxexp $(OS2_DLL_OBJ) >> $(OS2_DLL_NAME).def
+	gcc -g -Zbin-files -Zhigh-mem -Zomf -Zdll $(OS2_DLL_NAME).def -o $@ $(OS2_DLL_OBJ) $(OS2_DLL_LIBS) 
+	emximp -o .libs/$(OS2_LA_NAME).a $(OS2_DLL_NAME).def
+	emximp -o .libs/$(OS2_LA_NAME).lib $(OS2_DLL_NAME).def

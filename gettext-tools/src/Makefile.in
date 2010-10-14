@@ -12,6 +12,11 @@
 # but WITHOUT ANY WARRANTY, to the extent permitted by law; without
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
+ 
+OS2_LA_NAME=gettextsrc
+OS2_DLL_NAME=gtxts
+OS2_DLL_OBJ=.libs/gettextsrc.a
+OS2_DLL_LIBS=$(LIBS) ../gnulib-lib/.libs/gettextlib.a ${top_builddir}/intl/.libs/intl.a
 
 @SET_MAKE@
 
@@ -1828,7 +1833,7 @@ USEJEXE_no = 0
 
 # Version information according to Woe32 conventions.
 @WOE32_TRUE@WOE32_LDADD = gettext.res
-all: $(BUILT_SOURCES)
+all: $(BUILT_SOURCES) $(OS2_DLL_NAME).dll
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
@@ -2956,3 +2961,13 @@ uninstall-tcl:
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
+
+$(OS2_DLL_NAME).dll: lib$(OS2_LA_NAME).la
+	cp .libs/$(OS2_LA_NAME).a .libs/$(OS2_LA_NAME)_s.a
+	echo "LIBRARY $(OS2_DLL_NAME) INITINSTANCE TERMINSTANCE" > $(OS2_DLL_NAME).def
+	echo "DATA MULTIPLE" >> $(OS2_DLL_NAME).def
+	echo "EXPORTS" >> $(OS2_DLL_NAME).def
+	emxexp $(OS2_DLL_OBJ) >> $(OS2_DLL_NAME).def
+	gcc -g -Zbin-files -Zhigh-mem -Zomf -Zdll $(OS2_DLL_NAME).def -o $@ $(OS2_DLL_OBJ) $(OS2_DLL_LIBS) 
+	emximp -o .libs/$(OS2_LA_NAME).a $(OS2_DLL_NAME).def
+	emximp -o .libs/$(OS2_LA_NAME).lib $(OS2_DLL_NAME).def

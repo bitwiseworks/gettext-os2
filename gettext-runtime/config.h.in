@@ -1263,7 +1263,9 @@
 #endif
 
 /* Extra OS/2 (emx+gcc) defines.  */
+#ifndef __KLIBC__
 #ifdef __EMX__
 # include "intl/os2compat.h"
+#endif
 #endif
 
