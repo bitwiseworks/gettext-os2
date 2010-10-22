@@ -64,6 +64,7 @@
 #endif
 #if defined OS2
 # define INCL_DOS
+# define INCL_DOSERRORS
 # include <os2.h>
 #endif
 
@@ -503,6 +504,15 @@ locale_charset (void)
             {
               memcpy (buf, dot, modifier - dot);
               buf [modifier - dot] = '\0';
+              return buf;
+            }
+        }
+      else
+        {
+          /* OS/2 has a function returning the locale's codepage as a number.  */
+          if (DosQueryCp (sizeof (cp), cp, &cplen) == NO_ERROR)
+            {
+              sprintf (buf, "CP%u", cp[0]);
               return buf;
             }
         }
