@@ -220,6 +220,7 @@ urlget_SOURCES = urlget.c
 # use iconv().
 libgettextsrc_la_LDFLAGS = \
   -release @VERSION@ \
+  -os2dllname gtxts \
   ../gnulib-lib/libgettextlib.la $(LTLIBUNISTRING) @LTLIBINTL@ @LTLIBICONV@ -lc @LTNOUNDEF@
 
 # Tell the mingw or Cygwin linker which symbols to export.
