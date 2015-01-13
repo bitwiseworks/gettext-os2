@@ -382,4 +382,4 @@ cp -p gettext-runtime/ABOUT-NLS gettext-tools/ABOUT-NLS
 build-aux/fixaclocal aclocal -I m4
 autoconf
 automake
-libtoolize -c -i
+libtoolize -c -i -f

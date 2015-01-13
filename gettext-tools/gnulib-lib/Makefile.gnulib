@@ -706,7 +706,7 @@ lib_LTLIBRARIES = libgettextlib.la
 # Need @LTLIBC@ for -no-undefined to work on many platforms.
 libgettextlib_la_LDFLAGS += \
   -release @VERSION@ \
-  -os2dllname gtxtl \
+  -os2dllname gtxl \
   $(LTLIBUNISTRING) @LTLIBINTL@ @LTLIBICONV@ @LIB_ACL@ @LTLIBC@ @LTNOUNDEF@
 
 # Tell the mingw or Cygwin linker which symbols to export.
