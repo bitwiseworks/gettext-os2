@@ -41,7 +41,7 @@ aclocal_DATA = \
 examplesbuildauxdir = $(docdir)/examples/build-aux
 examplesbuildaux_DATA = \
   ../gnulib-m4/gcj.m4 ../gnulib-m4/javacomp.m4 ../gnulib-m4/javaexec.m4 \
-  ../gnulib-m4/csharpcomp.m4 ../gnulib-m4/csharpexec.m4 csharpexec-test.exe
+  ../gnulib-m4/csharpcomp.m4 ../gnulib-m4/csharpexec.m4 
 
 # Generate this list with
 # find . -type f -name '*.m4' -printf '%f\n' | sort | tr '\012' @ | sed 's/@$/%/;s/@/ \\@/g' | tr @% '\012\012'
