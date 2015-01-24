@@ -398,7 +398,9 @@
 #undef HAVE_PTHREAD_MUTEX_RECURSIVE
 
 /* Define if the POSIX multithreading library has read/write locks. */
+#ifndef __KLIBC__ // we have only stubs
 #undef HAVE_PTHREAD_RWLOCK
+#endif
 
 /* Define to 1 if you have the `putenv' function. */
 #undef HAVE_PUTENV
@@ -982,9 +984,6 @@
 /* Define if the mbrtowc function returns a wrong return value. */
 #undef MBRTOWC_RETVAL_BUG
 
-/* Define to 1 if your C compiler doesn't accept -c and -o together. */
-#undef NO_MINUS_C_MINUS_O
-
 /* Name of package */
 #undef PACKAGE
 
@@ -1263,9 +1262,7 @@
 #endif
 
 /* Extra OS/2 (emx+gcc) defines.  */
-#ifndef __KLIBC__
-#ifdef __EMX__
+#if defined(__EMX__) && !defined(__KLIBC__)
 # include "intl/os2compat.h"
-#endif
 #endif
 
