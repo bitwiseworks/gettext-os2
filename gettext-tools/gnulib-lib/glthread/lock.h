@@ -177,6 +177,10 @@ typedef pthread_mutex_t gl_lock_t;
 
 /* ------------------------- gl_rwlock_t datatype ------------------------- */
 
+#ifdef __KLIBC__ // we have only stubs
+#undef HAVE_PTHREAD_RWLOCK
+#endif
+
 # if HAVE_PTHREAD_RWLOCK
 
 #  ifdef PTHREAD_RWLOCK_INITIALIZER
