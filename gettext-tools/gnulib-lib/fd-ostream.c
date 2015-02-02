@@ -197,7 +197,7 @@ fd_ostream_write_mem (fd_ostream_t first_arg, const void *data, size_t len)
 {
   const struct fd_ostream_implementation *vtable =
     ((struct fd_ostream_representation_header *) (struct fd_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg,data,len);
+  vtable->write_mem (first_arg ,data ,len );
 }
 
 void
@@ -205,7 +205,7 @@ fd_ostream_flush (fd_ostream_t first_arg)
 {
   const struct fd_ostream_implementation *vtable =
     ((struct fd_ostream_representation_header *) (struct fd_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg);
+  vtable->flush (first_arg );
 }
 
 void
@@ -213,7 +213,7 @@ fd_ostream_free (fd_ostream_t first_arg)
 {
   const struct fd_ostream_implementation *vtable =
     ((struct fd_ostream_representation_header *) (struct fd_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg);
+  vtable->free (first_arg );
 }
 
 #endif

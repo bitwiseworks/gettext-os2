@@ -56,11 +56,11 @@ typedef ostream_t styled_ostream_t;
 #endif
 
 /* Functions that invoke the methods.  */
-extern        void styled_ostream_write_mem (styled_ostream_t first_arg, const void *data, size_t len);
-extern         void styled_ostream_flush (styled_ostream_t first_arg);
-extern         void styled_ostream_free (styled_ostream_t first_arg);
-extern          void styled_ostream_begin_use_class (styled_ostream_t first_arg, const char *classname);
-extern          void styled_ostream_end_use_class (styled_ostream_t first_arg, const char *classname);
+extern          void styled_ostream_write_mem (styled_ostream_t first_arg, const void *data, size_t len);
+extern            void styled_ostream_flush (styled_ostream_t first_arg);
+extern            void styled_ostream_free (styled_ostream_t first_arg);
+extern              void styled_ostream_begin_use_class (styled_ostream_t first_arg, const char *classname);
+extern              void styled_ostream_end_use_class (styled_ostream_t first_arg, const char *classname);
 
 /* Type representing an implementation of styled_ostream_t.  */
 struct styled_ostream_implementation
@@ -91,7 +91,7 @@ styled_ostream_write_mem (styled_ostream_t first_arg, const void *data, size_t l
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg,data,len);
+  vtable->write_mem (first_arg ,data ,len );
 }
 
 # define styled_ostream_flush styled_ostream_flush_inline
@@ -100,7 +100,7 @@ styled_ostream_flush (styled_ostream_t first_arg)
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg);
+  vtable->flush (first_arg );
 }
 
 # define styled_ostream_free styled_ostream_free_inline
@@ -109,7 +109,7 @@ styled_ostream_free (styled_ostream_t first_arg)
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg);
+  vtable->free (first_arg );
 }
 
 # define styled_ostream_begin_use_class styled_ostream_begin_use_class_inline
@@ -118,7 +118,7 @@ styled_ostream_begin_use_class (styled_ostream_t first_arg, const char *classnam
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->begin_use_class (first_arg,classname);
+  vtable->begin_use_class (first_arg ,classname );
 }
 
 # define styled_ostream_end_use_class styled_ostream_end_use_class_inline
@@ -127,7 +127,7 @@ styled_ostream_end_use_class (styled_ostream_t first_arg, const char *classname)
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->end_use_class (first_arg,classname);
+  vtable->end_use_class (first_arg ,classname );
 }
 
 #endif

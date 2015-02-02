@@ -4,5 +4,5 @@
 #include "ostream.vt.h"
 
 /* Virtual function table layout of styled_ostream class.  */
-         void (*begin_use_class) (THIS_ARG, const char *classname);
-         void (*end_use_class) (THIS_ARG, const char *classname);
+             void (*begin_use_class) (THIS_ARG, const char *classname);
+             void (*end_use_class) (THIS_ARG, const char *classname);

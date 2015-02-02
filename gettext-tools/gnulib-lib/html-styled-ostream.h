@@ -54,11 +54,11 @@ typedef styled_ostream_t html_styled_ostream_t;
 #endif
 
 /* Functions that invoke the methods.  */
-extern        void html_styled_ostream_write_mem (html_styled_ostream_t first_arg, const void *data, size_t len);
-extern         void html_styled_ostream_flush (html_styled_ostream_t first_arg);
-extern         void html_styled_ostream_free (html_styled_ostream_t first_arg);
-extern          void html_styled_ostream_begin_use_class (html_styled_ostream_t first_arg, const char *classname);
-extern          void html_styled_ostream_end_use_class (html_styled_ostream_t first_arg, const char *classname);
+extern          void html_styled_ostream_write_mem (html_styled_ostream_t first_arg, const void *data, size_t len);
+extern            void html_styled_ostream_flush (html_styled_ostream_t first_arg);
+extern            void html_styled_ostream_free (html_styled_ostream_t first_arg);
+extern              void html_styled_ostream_begin_use_class (html_styled_ostream_t first_arg, const char *classname);
+extern              void html_styled_ostream_end_use_class (html_styled_ostream_t first_arg, const char *classname);
 
 /* Type representing an implementation of html_styled_ostream_t.  */
 struct html_styled_ostream_implementation
@@ -89,7 +89,7 @@ html_styled_ostream_write_mem (html_styled_ostream_t first_arg, const void *data
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg,data,len);
+  vtable->write_mem (first_arg ,data ,len );
 }
 
 # define html_styled_ostream_flush html_styled_ostream_flush_inline
@@ -98,7 +98,7 @@ html_styled_ostream_flush (html_styled_ostream_t first_arg)
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg);
+  vtable->flush (first_arg );
 }
 
 # define html_styled_ostream_free html_styled_ostream_free_inline
@@ -107,7 +107,7 @@ html_styled_ostream_free (html_styled_ostream_t first_arg)
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg);
+  vtable->free (first_arg );
 }
 
 # define html_styled_ostream_begin_use_class html_styled_ostream_begin_use_class_inline
@@ -116,7 +116,7 @@ html_styled_ostream_begin_use_class (html_styled_ostream_t first_arg, const char
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->begin_use_class (first_arg,classname);
+  vtable->begin_use_class (first_arg ,classname );
 }
 
 # define html_styled_ostream_end_use_class html_styled_ostream_end_use_class_inline
@@ -125,7 +125,7 @@ html_styled_ostream_end_use_class (html_styled_ostream_t first_arg, const char *
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->end_use_class (first_arg,classname);
+  vtable->end_use_class (first_arg ,classname );
 }
 
 #endif

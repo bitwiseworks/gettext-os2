@@ -52,9 +52,9 @@ typedef struct any_ostream_representation * ostream_t;
 #endif
 
 /* Functions that invoke the methods.  */
-extern        void ostream_write_mem (ostream_t first_arg, const void *data, size_t len);
-extern         void ostream_flush (ostream_t first_arg);
-extern         void ostream_free (ostream_t first_arg);
+extern          void ostream_write_mem (ostream_t first_arg, const void *data, size_t len);
+extern            void ostream_flush (ostream_t first_arg);
+extern            void ostream_free (ostream_t first_arg);
 
 /* Type representing an implementation of ostream_t.  */
 struct ostream_implementation
@@ -85,7 +85,7 @@ ostream_write_mem (ostream_t first_arg, const void *data, size_t len)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg,data,len);
+  vtable->write_mem (first_arg ,data ,len );
 }
 
 # define ostream_flush ostream_flush_inline
@@ -94,7 +94,7 @@ ostream_flush (ostream_t first_arg)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg);
+  vtable->flush (first_arg );
 }
 
 # define ostream_free ostream_free_inline
@@ -103,7 +103,7 @@ ostream_free (ostream_t first_arg)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg);
+  vtable->free (first_arg );
 }
 
 #endif

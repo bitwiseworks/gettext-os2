@@ -4,5 +4,5 @@
 #include "ostream.vt.h"
 
 /* Virtual function table layout of html_ostream class.  */
-         void (*begin_span) (THIS_ARG, const char *classname);
-         void (*end_span) (THIS_ARG, const char *classname);
+             void (*begin_span) (THIS_ARG, const char *classname);
+             void (*end_span) (THIS_ARG, const char *classname);

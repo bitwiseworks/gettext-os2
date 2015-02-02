@@ -51,11 +51,11 @@ typedef ostream_t html_ostream_t;
 #endif
 
 /* Functions that invoke the methods.  */
-extern        void html_ostream_write_mem (html_ostream_t first_arg, const void *data, size_t len);
-extern         void html_ostream_flush (html_ostream_t first_arg);
-extern         void html_ostream_free (html_ostream_t first_arg);
-extern          void html_ostream_begin_span (html_ostream_t first_arg, const char *classname);
-extern          void html_ostream_end_span (html_ostream_t first_arg, const char *classname);
+extern          void html_ostream_write_mem (html_ostream_t first_arg, const void *data, size_t len);
+extern            void html_ostream_flush (html_ostream_t first_arg);
+extern            void html_ostream_free (html_ostream_t first_arg);
+extern              void html_ostream_begin_span (html_ostream_t first_arg, const char *classname);
+extern              void html_ostream_end_span (html_ostream_t first_arg, const char *classname);
 
 /* Type representing an implementation of html_ostream_t.  */
 struct html_ostream_implementation
@@ -86,7 +86,7 @@ html_ostream_write_mem (html_ostream_t first_arg, const void *data, size_t len)
 {
   const struct html_ostream_implementation *vtable =
     ((struct html_ostream_representation_header *) (struct html_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg,data,len);
+  vtable->write_mem (first_arg ,data ,len );
 }
 
 # define html_ostream_flush html_ostream_flush_inline
@@ -95,7 +95,7 @@ html_ostream_flush (html_ostream_t first_arg)
 {
   const struct html_ostream_implementation *vtable =
     ((struct html_ostream_representation_header *) (struct html_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg);
+  vtable->flush (first_arg );
 }
 
 # define html_ostream_free html_ostream_free_inline
@@ -104,7 +104,7 @@ html_ostream_free (html_ostream_t first_arg)
 {
   const struct html_ostream_implementation *vtable =
     ((struct html_ostream_representation_header *) (struct html_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg);
+  vtable->free (first_arg );
 }
 
 # define html_ostream_begin_span html_ostream_begin_span_inline
@@ -113,7 +113,7 @@ html_ostream_begin_span (html_ostream_t first_arg, const char *classname)
 {
   const struct html_ostream_implementation *vtable =
     ((struct html_ostream_representation_header *) (struct html_ostream_representation *) first_arg)->vtable;
-  vtable->begin_span (first_arg,classname);
+  vtable->begin_span (first_arg ,classname );
 }
 
 # define html_ostream_end_span html_ostream_end_span_inline
@@ -122,7 +122,7 @@ html_ostream_end_span (html_ostream_t first_arg, const char *classname)
 {
   const struct html_ostream_implementation *vtable =
     ((struct html_ostream_representation_header *) (struct html_ostream_representation *) first_arg)->vtable;
-  vtable->end_span (first_arg,classname);
+  vtable->end_span (first_arg ,classname );
 }
 
 #endif

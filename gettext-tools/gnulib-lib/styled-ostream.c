@@ -44,21 +44,21 @@ void styled_ostream__write_mem (styled_ostream_t first_arg, const void *data, si
 void
 styled_ostream__write_mem (styled_ostream_t first_arg, const void *data, size_t len)
 {
-  super.write_mem (first_arg,data,len);
+  super.write_mem (first_arg ,data ,len );
 }
 
 void styled_ostream__flush (styled_ostream_t first_arg);
 void
 styled_ostream__flush (styled_ostream_t first_arg)
 {
-  super.flush (first_arg);
+  super.flush (first_arg );
 }
 
 void styled_ostream__free (styled_ostream_t first_arg);
 void
 styled_ostream__free (styled_ostream_t first_arg)
 {
-  super.free (first_arg);
+  super.free (first_arg );
 }
 
 void styled_ostream__begin_use_class (styled_ostream_t first_arg, const char *classname);
@@ -68,7 +68,7 @@ styled_ostream__begin_use_class (styled_ostream_t first_arg, const char *classna
   /* Abstract (unimplemented) method called.  */
   abort ();
   #ifndef __GNUC__
-  styled_ostream__begin_use_class (first_arg,classname);
+  styled_ostream__begin_use_class (first_arg ,classname );
   #endif
 }
 
@@ -79,7 +79,7 @@ styled_ostream__end_use_class (styled_ostream_t first_arg, const char *classname
   /* Abstract (unimplemented) method called.  */
   abort ();
   #ifndef __GNUC__
-  styled_ostream__end_use_class (first_arg,classname);
+  styled_ostream__end_use_class (first_arg ,classname );
   #endif
 }
 
@@ -105,7 +105,7 @@ styled_ostream_write_mem (styled_ostream_t first_arg, const void *data, size_t l
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg,data,len);
+  vtable->write_mem (first_arg ,data ,len );
 }
 
 void
@@ -113,7 +113,7 @@ styled_ostream_flush (styled_ostream_t first_arg)
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg);
+  vtable->flush (first_arg );
 }
 
 void
@@ -121,7 +121,7 @@ styled_ostream_free (styled_ostream_t first_arg)
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg);
+  vtable->free (first_arg );
 }
 
 void
@@ -129,7 +129,7 @@ styled_ostream_begin_use_class (styled_ostream_t first_arg, const char *classnam
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->begin_use_class (first_arg,classname);
+  vtable->begin_use_class (first_arg ,classname );
 }
 
 void
@@ -137,7 +137,7 @@ styled_ostream_end_use_class (styled_ostream_t first_arg, const char *classname)
 {
   const struct styled_ostream_implementation *vtable =
     ((struct styled_ostream_representation_header *) (struct styled_ostream_representation *) first_arg)->vtable;
-  vtable->end_use_class (first_arg,classname);
+  vtable->end_use_class (first_arg ,classname );
 }
 
 #endif
