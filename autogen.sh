@@ -394,6 +394,8 @@ else
   done
 fi
 
+libtoolize -c -i -f
+
 (cd gettext-runtime/libasprintf
  aclocal -I ../../m4 -I ../m4 -I gnulib-m4
  autoconf
@@ -453,4 +455,3 @@ cp -p gettext-runtime/ABOUT-NLS gettext-tools/ABOUT-NLS
 aclocal -I m4
 autoconf
 automake
-libtoolize -c -i -f
