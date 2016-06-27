@@ -2,7 +2,7 @@
 
 #line 1 "term-ostream.oo.h"
 /* Output stream for attributed text, producing ANSI escape sequences.
-   Copyright (C) 2006 Free Software Foundation, Inc.
+   Copyright (C) 2006, 2015-2016 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2006.
 
    This program is free software: you can redistribute it and/or modify
@@ -132,7 +132,7 @@ term_ostream_write_mem (term_ostream_t first_arg, const void *data, size_t len)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg ,data ,len );
+  vtable->write_mem (first_arg,data,len);
 }
 
 # define term_ostream_flush term_ostream_flush_inline
@@ -141,7 +141,7 @@ term_ostream_flush (term_ostream_t first_arg)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg );
+  vtable->flush (first_arg);
 }
 
 # define term_ostream_free term_ostream_free_inline
@@ -150,7 +150,7 @@ term_ostream_free (term_ostream_t first_arg)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg );
+  vtable->free (first_arg);
 }
 
 # define term_ostream_rgb_to_color term_ostream_rgb_to_color_inline
@@ -159,7 +159,7 @@ term_ostream_rgb_to_color (term_ostream_t first_arg,                            
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  return vtable->rgb_to_color (first_arg ,red ,green ,blue );
+  return vtable->rgb_to_color (first_arg,red,green,blue);
 }
 
 # define term_ostream_get_color term_ostream_get_color_inline
@@ -168,7 +168,7 @@ term_ostream_get_color (term_ostream_t first_arg)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  return vtable->get_color (first_arg );
+  return vtable->get_color (first_arg);
 }
 
 # define term_ostream_set_color term_ostream_set_color_inline
@@ -177,7 +177,7 @@ term_ostream_set_color (term_ostream_t first_arg, term_color_t color)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  vtable->set_color (first_arg ,color );
+  vtable->set_color (first_arg,color);
 }
 
 # define term_ostream_get_bgcolor term_ostream_get_bgcolor_inline
@@ -186,7 +186,7 @@ term_ostream_get_bgcolor (term_ostream_t first_arg)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  return vtable->get_bgcolor (first_arg );
+  return vtable->get_bgcolor (first_arg);
 }
 
 # define term_ostream_set_bgcolor term_ostream_set_bgcolor_inline
@@ -195,7 +195,7 @@ term_ostream_set_bgcolor (term_ostream_t first_arg, term_color_t color)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  vtable->set_bgcolor (first_arg ,color );
+  vtable->set_bgcolor (first_arg,color);
 }
 
 # define term_ostream_get_weight term_ostream_get_weight_inline
@@ -204,7 +204,7 @@ term_ostream_get_weight (term_ostream_t first_arg)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  return vtable->get_weight (first_arg );
+  return vtable->get_weight (first_arg);
 }
 
 # define term_ostream_set_weight term_ostream_set_weight_inline
@@ -213,7 +213,7 @@ term_ostream_set_weight (term_ostream_t first_arg, term_weight_t weight)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  vtable->set_weight (first_arg ,weight );
+  vtable->set_weight (first_arg,weight);
 }
 
 # define term_ostream_get_posture term_ostream_get_posture_inline
@@ -222,7 +222,7 @@ term_ostream_get_posture (term_ostream_t first_arg)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  return vtable->get_posture (first_arg );
+  return vtable->get_posture (first_arg);
 }
 
 # define term_ostream_set_posture term_ostream_set_posture_inline
@@ -231,7 +231,7 @@ term_ostream_set_posture (term_ostream_t first_arg, term_posture_t posture)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  vtable->set_posture (first_arg ,posture );
+  vtable->set_posture (first_arg,posture);
 }
 
 # define term_ostream_get_underline term_ostream_get_underline_inline
@@ -240,7 +240,7 @@ term_ostream_get_underline (term_ostream_t first_arg)
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  return vtable->get_underline (first_arg );
+  return vtable->get_underline (first_arg);
 }
 
 # define term_ostream_set_underline term_ostream_set_underline_inline
@@ -249,7 +249,7 @@ term_ostream_set_underline (term_ostream_t first_arg,                           
 {
   const struct term_ostream_implementation *vtable =
     ((struct term_ostream_representation_header *) (struct term_ostream_representation *) first_arg)->vtable;
-  vtable->set_underline (first_arg ,underline );
+  vtable->set_underline (first_arg,underline);
 }
 
 #endif

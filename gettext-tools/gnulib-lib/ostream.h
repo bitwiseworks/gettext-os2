@@ -2,7 +2,7 @@
 
 #line 1 "ostream.oo.h"
 /* Abstract output stream data type.
-   Copyright (C) 2006 Free Software Foundation, Inc.
+   Copyright (C) 2006, 2015-2016 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2006.
 
    This program is free software: you can redistribute it and/or modify
@@ -85,7 +85,7 @@ ostream_write_mem (ostream_t first_arg, const void *data, size_t len)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg ,data ,len );
+  vtable->write_mem (first_arg,data,len);
 }
 
 # define ostream_flush ostream_flush_inline
@@ -94,7 +94,7 @@ ostream_flush (ostream_t first_arg)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg );
+  vtable->flush (first_arg);
 }
 
 # define ostream_free ostream_free_inline
@@ -103,7 +103,7 @@ ostream_free (ostream_t first_arg)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg );
+  vtable->free (first_arg);
 }
 
 #endif

@@ -1,5 +1,5 @@
 /* Replacement <sched.h> for platforms that lack it.
-   Copyright (C) 2008-2013 Free Software Foundation, Inc.
+   Copyright (C) 2008-2016 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -35,16 +35,21 @@
    and Mac OS X 10.5.  */
 #include <sys/types.h>
 
+#ifdef __KLIBC__
+
+/* On OS/2 kLIBC, struct sched_param is in spawn.h */
+# include <spawn.h>
+
+#endif
+
 #if !@HAVE_STRUCT_SCHED_PARAM@
 
-# ifndef __KLIBC__
 # if !GNULIB_defined_struct_sched_param
 struct sched_param
 {
   int sched_priority;
 };
 #  define GNULIB_defined_struct_sched_param 1
-# endif
 # endif
 
 #endif

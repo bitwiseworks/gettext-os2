@@ -2,7 +2,7 @@
 
 #line 1 "fd-ostream.oo.h"
 /* Output stream referring to a file descriptor.
-   Copyright (C) 2006 Free Software Foundation, Inc.
+   Copyright (C) 2006, 2015-2016 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2006.
 
    This program is free software: you can redistribute it and/or modify
@@ -86,7 +86,7 @@ fd_ostream_write_mem (fd_ostream_t first_arg, const void *data, size_t len)
 {
   const struct fd_ostream_implementation *vtable =
     ((struct fd_ostream_representation_header *) (struct fd_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg ,data ,len );
+  vtable->write_mem (first_arg,data,len);
 }
 
 # define fd_ostream_flush fd_ostream_flush_inline
@@ -95,7 +95,7 @@ fd_ostream_flush (fd_ostream_t first_arg)
 {
   const struct fd_ostream_implementation *vtable =
     ((struct fd_ostream_representation_header *) (struct fd_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg );
+  vtable->flush (first_arg);
 }
 
 # define fd_ostream_free fd_ostream_free_inline
@@ -104,7 +104,7 @@ fd_ostream_free (fd_ostream_t first_arg)
 {
   const struct fd_ostream_implementation *vtable =
     ((struct fd_ostream_representation_header *) (struct fd_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg );
+  vtable->free (first_arg);
 }
 
 #endif

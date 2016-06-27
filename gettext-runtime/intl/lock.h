@@ -1,5 +1,5 @@
 /* Locking in multithreaded situations.
-   Copyright (C) 2005-2008 Free Software Foundation, Inc.
+   Copyright (C) 2005-2008, 2015-2016 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published by
@@ -175,10 +175,6 @@ typedef pthread_mutex_t gl_lock_t;
     (pthread_in_use () ? pthread_mutex_destroy (LOCK) : 0)
 
 /* ------------------------- gl_rwlock_t datatype ------------------------- */
-
-#ifdef __KLIBC__ // we have only stubs
-#undef HAVE_PTHREAD_RWLOCK
-#endif
 
 # if HAVE_PTHREAD_RWLOCK
 

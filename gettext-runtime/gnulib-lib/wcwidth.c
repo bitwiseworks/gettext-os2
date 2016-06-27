@@ -1,5 +1,5 @@
 /* Determine the number of screen columns needed for a character.
-   Copyright (C) 2006-2007, 2010-2013 Free Software Foundation, Inc.
+   Copyright (C) 2006-2007, 2010-2016 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -26,8 +26,6 @@
 #include "streq.h"
 #include "uniwidth.h"
 
-#ifndef __KLIBC__
-
 int
 wcwidth (wchar_t wc)
 #undef wcwidth
@@ -50,5 +48,3 @@ wcwidth (wchar_t wc)
 #endif
     }
 }
-
-#endif __KLIBC__

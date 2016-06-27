@@ -2,7 +2,7 @@
 
 #line 1 "ostream.oo.c"
 /* Abstract output stream data type.
-   Copyright (C) 2006 Free Software Foundation, Inc.
+   Copyright (C) 2006, 2015-2016 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2006.
 
    This program is free software: you can redistribute it and/or modify
@@ -54,7 +54,7 @@ ostream__write_mem (ostream_t first_arg, const void *data, size_t len)
   /* Abstract (unimplemented) method called.  */
   abort ();
   #ifndef __GNUC__
-  ostream__write_mem (first_arg ,data ,len );
+  ostream__write_mem (first_arg,data,len);
   #endif
 }
 
@@ -65,7 +65,7 @@ ostream__flush (ostream_t first_arg)
   /* Abstract (unimplemented) method called.  */
   abort ();
   #ifndef __GNUC__
-  ostream__flush (first_arg );
+  ostream__flush (first_arg);
   #endif
 }
 
@@ -76,7 +76,7 @@ ostream__free (ostream_t first_arg)
   /* Abstract (unimplemented) method called.  */
   abort ();
   #ifndef __GNUC__
-  ostream__free (first_arg );
+  ostream__free (first_arg);
   #endif
 }
 
@@ -100,7 +100,7 @@ ostream_write_mem (ostream_t first_arg, const void *data, size_t len)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg ,data ,len );
+  vtable->write_mem (first_arg,data,len);
 }
 
 void
@@ -108,7 +108,7 @@ ostream_flush (ostream_t first_arg)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg );
+  vtable->flush (first_arg);
 }
 
 void
@@ -116,7 +116,7 @@ ostream_free (ostream_t first_arg)
 {
   const struct ostream_implementation *vtable =
     ((struct ostream_representation_header *) (struct any_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg );
+  vtable->free (first_arg);
 }
 
 #endif

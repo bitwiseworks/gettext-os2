@@ -2,7 +2,7 @@
 
 #line 1 "file-ostream.oo.c"
 /* Output stream referring to an stdio FILE.
-   Copyright (C) 2006 Free Software Foundation, Inc.
+   Copyright (C) 2006, 2015-2016 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2006.
 
    This program is free software: you can redistribute it and/or modify
@@ -98,7 +98,7 @@ file_ostream_write_mem (file_ostream_t first_arg, const void *data, size_t len)
 {
   const struct file_ostream_implementation *vtable =
     ((struct file_ostream_representation_header *) (struct file_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg ,data ,len );
+  vtable->write_mem (first_arg,data,len);
 }
 
 void
@@ -106,7 +106,7 @@ file_ostream_flush (file_ostream_t first_arg)
 {
   const struct file_ostream_implementation *vtable =
     ((struct file_ostream_representation_header *) (struct file_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg );
+  vtable->flush (first_arg);
 }
 
 void
@@ -114,7 +114,7 @@ file_ostream_free (file_ostream_t first_arg)
 {
   const struct file_ostream_implementation *vtable =
     ((struct file_ostream_representation_header *) (struct file_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg );
+  vtable->free (first_arg);
 }
 
 #endif

@@ -2,7 +2,7 @@
 
 #line 1 "html-styled-ostream.oo.h"
 /* Output stream for CSS styled text, producing HTML output.
-   Copyright (C) 2006 Free Software Foundation, Inc.
+   Copyright (C) 2006, 2015-2016 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2006.
 
    This program is free software: you can redistribute it and/or modify
@@ -89,7 +89,7 @@ html_styled_ostream_write_mem (html_styled_ostream_t first_arg, const void *data
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->write_mem (first_arg ,data ,len );
+  vtable->write_mem (first_arg,data,len);
 }
 
 # define html_styled_ostream_flush html_styled_ostream_flush_inline
@@ -98,7 +98,7 @@ html_styled_ostream_flush (html_styled_ostream_t first_arg)
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->flush (first_arg );
+  vtable->flush (first_arg);
 }
 
 # define html_styled_ostream_free html_styled_ostream_free_inline
@@ -107,7 +107,7 @@ html_styled_ostream_free (html_styled_ostream_t first_arg)
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->free (first_arg );
+  vtable->free (first_arg);
 }
 
 # define html_styled_ostream_begin_use_class html_styled_ostream_begin_use_class_inline
@@ -116,7 +116,7 @@ html_styled_ostream_begin_use_class (html_styled_ostream_t first_arg, const char
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->begin_use_class (first_arg ,classname );
+  vtable->begin_use_class (first_arg,classname);
 }
 
 # define html_styled_ostream_end_use_class html_styled_ostream_end_use_class_inline
@@ -125,7 +125,7 @@ html_styled_ostream_end_use_class (html_styled_ostream_t first_arg, const char *
 {
   const struct html_styled_ostream_implementation *vtable =
     ((struct html_styled_ostream_representation_header *) (struct html_styled_ostream_representation *) first_arg)->vtable;
-  vtable->end_use_class (first_arg ,classname );
+  vtable->end_use_class (first_arg,classname);
 }
 
 #endif

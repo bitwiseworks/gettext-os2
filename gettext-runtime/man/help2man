@@ -31,7 +31,7 @@ my $this_version = '1.24';
 my $version_info = <<EOT;
 GNU $this_program $this_version
 
-Copyright (C) 1997, 1998, 1999, 2000 Free Software Foundation, Inc.
+Copyright (C) 1997-2000, 2015-2016 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -176,7 +176,7 @@ setlocale LC_TIME, 'C';
 # Grab help and version info from executable.
 my ($help_text, $version_text) = map {
     join '', map { s/ +$//; expand $_ } `$ARGV[0] --$_ 2>/dev/null`
-#	or die "$this_program: can't get `--$_' info from $ARGV[0]\n"
+	or die "$this_program: can't get `--$_' info from $ARGV[0]\n"
 } qw(help version);
 
 my $date = strftime "%B %Y", localtime;
