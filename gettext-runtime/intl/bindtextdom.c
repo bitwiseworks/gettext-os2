@@ -317,7 +317,7 @@ set_binding_values (const char *domainname,
 char *
 BINDTEXTDOMAIN (const char *domainname, const char *dirname)
 {
-#ifdef __EMX__
+#if defined(__EMX__) && !defined(__KLIBC__)
   const char *saved_dirname = dirname;
   char dirname_with_drive[_MAX_PATH];
 
@@ -341,7 +341,7 @@ BINDTEXTDOMAIN (const char *domainname, const char *dirname)
     }
 #endif
   set_binding_values (domainname, &dirname, NULL);
-#ifdef __EMX__
+#if defined(__EMX__) && !defined(__KLIBC__)
   dirname = saved_dirname;
 #endif
   return (char *) dirname;
