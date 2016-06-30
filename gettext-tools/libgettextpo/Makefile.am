@@ -108,7 +108,6 @@ LTV_AGE=5
 libgettextpo_la_LIBADD = libgnu.la $(WOE32_LIBADD) $(LTLIBUNISTRING)
 libgettextpo_la_LDFLAGS = \
   -version-info $(LTV_CURRENT):$(LTV_REVISION):$(LTV_AGE) \
-  -os2dllname gtxp \
   -rpath $(libdir) \
   @LTLIBINTL@ @LTLIBICONV@ -lc -no-undefined
 

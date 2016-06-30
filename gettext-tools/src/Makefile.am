@@ -253,7 +253,6 @@ cldr_plurals_LDADD = libgettextsrc.la $(LDADD)
 # use iconv().
 libgettextsrc_la_LDFLAGS = \
   -release @VERSION@ \
-  -os2dllname gtxs \
   ../gnulib-lib/libgettextlib.la $(LTLIBUNISTRING) @LTLIBINTL@ @LTLIBICONV@ -lc -no-undefined
 
 # OS/2 does not support a DLL name longer than 8 characters.

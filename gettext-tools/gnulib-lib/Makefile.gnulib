@@ -835,7 +835,6 @@ lib_LTLIBRARIES = libgettextlib.la
 #libgettextlib_la_LDFLAGS += $(LTLIBUNISTRING) @LTLIBINTL@ @LTLIBICONV@ @LIB_ACL@
 
 libgettextlib_la_LDFLAGS += -release @VERSION@
-libgettextlib_la_LDFLAGS += -os2dllname gtxl
 
 # Tell the mingw or Cygwin linker which symbols to export.
 if WOE32DLL
