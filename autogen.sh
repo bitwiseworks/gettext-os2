@@ -626,6 +626,14 @@ dir0=`pwd`
 
 echo "$0: generating configure in gettext-runtime/intl..."
 cd gettext-runtime/intl
+
+case `uname -s` in
+ OS/2*)
+  # we libtoolize completely, so no need to fetch any files
+  libtoolize -c -i -f
+  ;;
+esac
+
 aclocal -I ../../m4 -I ../m4 -I gnulib-m4 \
   && autoconf \
   && autoheader && touch config.h.in \
