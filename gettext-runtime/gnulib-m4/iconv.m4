@@ -206,6 +206,7 @@ AC_DEFUN([AM_ICONV_LINK],
 #endif
   /* Test against HP-UX 11.11 bug: No converter from EUC-JP to UTF-8 is
      provided.  */
+#ifndef __OS2__ /* This bug could be worked around by the caller.  */
   {
     /* Try standardized names.  */
     iconv_t cd1 = iconv_open ("UTF-8", "EUC-JP");
@@ -228,6 +229,7 @@ AC_DEFUN([AM_ICONV_LINK],
       iconv_close (cd4);
   }
   return result;
+#endif
 ]])],
           [am_cv_func_iconv_works=yes], ,
           [case "$host_os" in
