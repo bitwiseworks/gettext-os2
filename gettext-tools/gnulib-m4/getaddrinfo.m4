@@ -37,6 +37,9 @@ AC_DEFUN([gl_GETADDRINFO],
 #include <netdb.h>
 #endif
 #include <stddef.h>
+#ifdef __KLIBC__
+#include <libcx/net.h>
+#endif
 ]], [[getaddrinfo("", "", NULL, NULL);]])],
       [gl_cv_func_getaddrinfo=yes],
       [gl_cv_func_getaddrinfo=no])])
@@ -73,6 +76,9 @@ AC_DEFUN([gl_GETADDRINFO],
 #include <ws2tcpip.h>
 #endif
 #include <stddef.h>
+#ifdef __KLIBC__
+#include <libcx/net.h>
+#endif
 extern
 #ifdef __cplusplus
 "C"
@@ -103,6 +109,9 @@ int getaddrinfo (const char *, const char *, const struct addrinfo *, struct add
 #endif
 #ifdef HAVE_WS2TCPIP_H
 #include <ws2tcpip.h>
+#endif
+#ifdef __KLIBC__
+#include <libcx/net.h>
 #endif
 #include <stddef.h>
 #include <string.h>
@@ -160,6 +169,9 @@ int getaddrinfo (const char *, const char *, const struct addrinfo *, struct add
 #ifdef HAVE_WS2TCPIP_H
 #include <ws2tcpip.h>
 #endif
+#ifdef __KLIBC__
+#include <libcx/net.h>
+#endif
 #include <stddef.h>
 ]])
   if test $ac_cv_have_decl_gai_strerror = yes; then
@@ -173,6 +185,9 @@ int getaddrinfo (const char *, const char *, const struct addrinfo *, struct add
 #endif
 #ifdef HAVE_WS2TCPIP_H
 #include <ws2tcpip.h>
+#endif
+#ifdef __KLIBC__
+#include <libcx/net.h>
 #endif
 #include <stddef.h>
 ]])
@@ -189,6 +204,9 @@ int getaddrinfo (const char *, const char *, const struct addrinfo *, struct add
 #endif
 #ifdef HAVE_WS2TCPIP_H
 #include <ws2tcpip.h>
+#endif
+#ifdef __KLIBC__
+#include <libcx/net.h>
 #endif
 #include <stddef.h>
 extern
@@ -245,6 +263,9 @@ AC_DEFUN([gl_PREREQ_GETADDRINFO], [
 #ifdef HAVE_WS2TCPIP_H
 #include <ws2tcpip.h>
 #endif
+#ifdef __KLIBC__
+#include <libcx/net.h>
+#endif
 ]])
   if test $ac_cv_have_decl_getaddrinfo = no; then
     HAVE_DECL_GETADDRINFO=0
@@ -269,6 +290,9 @@ AC_DEFUN([gl_PREREQ_GETADDRINFO], [
 #endif
 #ifdef HAVE_WS2TCPIP_H
 #include <ws2tcpip.h>
+#endif
+#ifdef __KLIBC__
+#include <libcx/net.h>
 #endif
 ])
   if test $ac_cv_type_struct_addrinfo = no; then
