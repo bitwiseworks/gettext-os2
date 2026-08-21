@@ -257,7 +257,7 @@ AC_DEFUN([_LT_AC_PROG_ECHO_BACKSLASH],
 	 [AC_DIVERT_PUSH(NOTICE)])
 
 # Check that we are running under the correct shell.
-SHELL=${CONFIG_SHELL-/bin/sh}
+SHELL=${CONFIG_SHELL-${UNIXROOT:+/@unixroot/usr}/bin/sh}
 
 case X$ECHO in
 X*--fallback-echo)
@@ -342,7 +342,7 @@ else
     elif (test -f /bin/ksh || test -f /bin/ksh$ac_exeext) &&
 	 test "X$CONFIG_SHELL" != X/bin/ksh; then
       # If we have ksh, try running configure again with it.
-      ORIGINAL_CONFIG_SHELL=${CONFIG_SHELL-/bin/sh}
+      ORIGINAL_CONFIG_SHELL=${CONFIG_SHELL-${UNIXROOT:+/@unixroot/usr}/bin/sh}
       export ORIGINAL_CONFIG_SHELL
       CONFIG_SHELL=/bin/ksh
       export CONFIG_SHELL
@@ -384,7 +384,7 @@ else
 	if test "$prev" != 'sed 50q "[$]0"'; then
 	  echo_test_string=`eval $prev`
 	  export echo_test_string
-	  exec ${ORIGINAL_CONFIG_SHELL-${CONFIG_SHELL-/bin/sh}} "[$]0" ${1+"[$]@"}
+	  exec ${ORIGINAL_CONFIG_SHELL-${CONFIG_SHELL-${UNIXROOT:+/@unixroot/usr}/bin/sh}} "[$]0" ${1+"[$]@"}
 	else
 	  # Oops.  We lost completely, so just stick with echo.
 	  echo=echo

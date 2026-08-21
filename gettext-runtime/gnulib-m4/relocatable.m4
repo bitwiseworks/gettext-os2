@@ -154,7 +154,7 @@ AC_DEFUN([AC_LIB_LIBPATH],
   AC_REQUIRE([AC_CONFIG_AUX_DIR_DEFAULT]) dnl we use $ac_aux_dir
   AC_CACHE_CHECK([for shared library path variable], [acl_cv_libpath], [
     LD="$LD" \
-    ${CONFIG_SHELL-/bin/sh} "$ac_aux_dir/config.libpath" "$host" "$HOST_CPU_C_ABI_32BIT" > conftest.sh
+    ${CONFIG_SHELL-${UNIXROOT:+/@unixroot/usr}/bin/sh} "$ac_aux_dir/config.libpath" "$host" "$HOST_CPU_C_ABI_32BIT" > conftest.sh
     . ./conftest.sh
     rm -f ./conftest.sh
     acl_cv_libpath=${acl_cv_shlibpath_var:-none}
