@@ -108,6 +108,13 @@ if test $skip_gnulib = false; then
   $GNULIB_TOOL --copy-file m4/libtextstyle.m4
 fi
 
+# When gnulib-tool is skipped, ensure that po.m4's companion macro is present.
+# A VCS checkout can contain gnulib-m4/po.m4 without the otherwise generated
+# gnulib-m4/progtest.m4.
+if $skip_gnulib; then
+  cp -p ../gettext-runtime/m4/progtest.m4 gnulib-m4/
+fi
+
 # Copy some files from gettext.
 cp -p ../INSTALL.windows .
 mkdir -p m4

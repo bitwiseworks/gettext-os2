@@ -107,6 +107,7 @@ libtextstyle/build-aux/missing
 libtextstyle/build-aux/test-driver
 libtextstyle/configure
 libtextstyle/doc/Makefile.in
+libtextstyle/gnulib-m4/progtest.m4
 libtextstyle/install-tests/Makefile.in
 libtextstyle/lib/Makefile.in
 libtextstyle/m4/libtool.m4
