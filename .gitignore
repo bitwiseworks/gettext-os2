@@ -15,6 +15,7 @@ build-aux/ylwrap
 configure
 gettext-runtime/Makefile.in
 gettext-runtime/aclocal.m4
+gettext-runtime/config.h.in
 gettext-runtime/config.h.in~
 gettext-runtime/configure
 gettext-runtime/configure~
@@ -25,6 +26,7 @@ gettext-runtime/intl-csharp/Makefile.in
 gettext-runtime/intl-d/Makefile.in
 gettext-runtime/intl-java/Makefile.in
 gettext-runtime/intl-modula2/Makefile.in
+gettext-runtime/intl/config.h.in
 gettext-runtime/intl/aclocal.m4
 gettext-runtime/intl/configure
 gettext-runtime/intl/configure~
@@ -32,6 +34,7 @@ gettext-runtime/intl/Makefile.in
 gettext-runtime/intl/gnulib-lib/Makefile.in
 gettext-runtime/libasprintf/Makefile.in
 gettext-runtime/libasprintf/aclocal.m4
+gettext-runtime/libasprintf/config.h.in
 gettext-runtime/libasprintf/config.h.in~
 gettext-runtime/libasprintf/configure
 gettext-runtime/libasprintf/configure~
@@ -90,6 +93,7 @@ m4/ltoptions.m4
 m4/ltsugar.m4
 m4/ltversion.m4
 m4/lt~obsolete.m4
+libtextstyle/config.h.in
 libtextstyle/configure~
 libtextstyle/Makefile.in
 libtextstyle/aclocal.m4
